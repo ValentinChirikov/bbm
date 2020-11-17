@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <name>bbm-server</name>
+    <groupId>by.homebrew</groupId>
+    <artifactId>bbm</artifactId>
+    <version>0.2.2</version>
+    <description>Beer brew machine</description>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.10.RELEASE</version>
+    </parent>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <teavm.version>0.6.1</teavm.version>
+        <teavm-flavour.version>0.2.1</teavm-flavour.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+
+        <!--Jackson for binding-->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+        <!--Jackson for binding-->
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>webjars-locator-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>sockjs-client</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>stomp-websocket</artifactId>
+            <version>2.3.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>momentjs</artifactId>
+            <version>2.24.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>Semantic-UI</artifactId>
+            <version>2.4.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars.bower</groupId>
+            <artifactId>chartjs</artifactId>
+            <version>2.6.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.webjars</groupId>
+            <artifactId>jquery</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.teavm</groupId>
+            <artifactId>teavm-classlib</artifactId>
+            <version>${teavm.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.teavm</groupId>
+            <artifactId>teavm-metaprogramming-impl</artifactId>
+            <version>${teavm.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.teavm.flavour</groupId>
+            <artifactId>teavm-flavour-widgets</artifactId>
+            <version>${teavm-flavour.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.teavm.flavour</groupId>
+            <artifactId>teavm-flavour-rest</artifactId>
+            <version>${teavm-flavour.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.teavm.flavour</groupId>
+            <artifactId>teavm-flavour-routing</artifactId>
+            <version>${teavm-flavour.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!--Model to DTO mapper-->
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>2.3.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>2.0.16</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+<!--        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>3.4.0</version>
+        </dependency>-->
+    </dependencies>
+
+    <build>
+        <plugins>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-checkstyle-plugin</artifactId>-->
+<!--                <version>3.1.0</version>-->
+<!--                <configuration>-->
+<!--                    <configLocation>ese_checks.xml</configLocation>-->
+<!--                    <encoding>UTF-8</encoding>-->
+<!--                    <consoleOutput>false</consoleOutput>-->
+<!--                    <failsOnError>true</failsOnError>-->
+<!--                    <linkXRef>false</linkXRef>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>validate</id>-->
+<!--                        <phase>validate</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>check</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+
+            <plugin>
+                <groupId>org.teavm</groupId>
+                <artifactId>teavm-maven-plugin</artifactId>
+                <version>${teavm.version}</version>
+                <executions>
+                    <execution>
+                        <id>bbm.web-BBM</id>
+                        <!--                        <phase>prepare-package</phase>-->
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>compile</goal>
+                        </goals>
+                        <configuration>
+                            <targetDirectory>${project.build.directory}/classes/static/js/teavm</targetDirectory>
+                            <mainClass>bbm.web.views.Container</mainClass>
+                            <minifying>true</minifying>
+                            <debugInformationGenerated>false</debugInformationGenerated>
+                            <sourceMapsGenerated>false</sourceMapsGenerated>
+                            <sourceFilesCopied>false</sourceFilesCopied>
+                            <optimizationLevel>SIMPLE</optimizationLevel>
+                        </configuration>
+<!--                        <configuration>-->
+<!--                            <targetDirectory>${project.build.directory}/classes/static/js/teavm</targetDirectory>-->
+<!--                            <mainClass>bbm.web.views.Container</mainClass>-->
+<!--                            <minifying>false</minifying>-->
+<!--                            <debugInformationGenerated>true</debugInformationGenerated>-->
+<!--                            <sourceMapsGenerated>true</sourceMapsGenerated>-->
+<!--                            <sourceFilesCopied>true</sourceFilesCopied>-->
+<!--                            <optimizationLevel>SIMPLE</optimizationLevel>-->
+<!--                        </configuration>-->
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>

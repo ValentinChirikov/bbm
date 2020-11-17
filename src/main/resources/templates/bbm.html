@@ -1,0 +1,148 @@
+<!--<xmlns xmlns:html="http://teavm.org/flavour/html">-->
+<!--<?import java.time.LocalDateTime?>-->
+<div id="container" class="ui grid container">
+    <div class="row">
+        <div class="row">
+            <button id="run" class="ui button" event:click="runMachine()">Run</button>
+            <table id="statuses">
+                <thead>
+                <tr>
+                    <th>Status</th>
+                    <th>Message</th>
+                    <th>Graph</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <div class="ui message" id="status">
+                            <html:text value="status"/>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="ui message" id="message">
+                            <html:text value="message"/>
+                        </div>
+                    </td>
+                    <td>
+                        <canvas id="chart" style="display: block;" class="chartjs-render-monitor"></canvas>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <table class="ui celled table" id="brewMachine">
+            <tbody>
+            <tr>
+                <td>Sensor active</td>
+                <td id="sensorActive" attr:style="'background:' + (machine.sensorActive ? 'green' : 'red')">
+                    <html:text value="machine.sensorActive"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Temperature</td>
+                <td id="currentTemp">
+                    <html:text value="machine.wortTemp"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Time</td>
+                <td id="currentTime">
+                    <html:text value="machine.time"/>
+                </td>
+            </tr>
+            <tr>
+                <td>State</td>
+                <td id="state">
+                    <std:if condition="machine.state != null">
+                        <html:text value="machine.state"/>
+                    </std:if>
+                </td>
+            </tr>
+            <tr>
+                <td>Stage</td>
+                <td id="stage">
+                    <std:if condition="machine.stage != null">
+                        <html:text value="machine.stage.name"/>
+                    </std:if>
+                </td>
+            </tr>
+            <tr>
+                <td>Stage state</td>
+                <td id="stageState">
+                    <std:if condition="machine.stageState != null">
+                        <html:text value="machine.stageState"/>
+                    </std:if>
+                </td>
+            </tr>
+            <tr>
+                <td>Stage start time</td>
+                <td id="stageStartTime">
+                    <std:if condition="machine.stageStartTime != null">
+                        <html:text value="machine.stageStartTime"/>
+                    </std:if>
+                </td>
+            </tr>
+            <tr>
+                <td>Stage planned end time</td>
+                <td id="stagePlannedEndTime">
+                    <std:if condition="machine.stagePlannedEndTime != null">
+                        <html:text value="machine.stagePlannedEndTime"/>
+                    </std:if>
+                </td>
+            </tr>
+            <tr>
+                <td>Time left</td>
+                <td id="timeLeft">
+                </td>
+            </tr>
+            <tr>
+                <td>Stage progress</td>
+                <td>
+                    <div id="stageProgress">
+                        <div id="stageProgressBar">0%</div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <input type="file" id="recipeFile" accept=".json">
+        <button id="loadFile" event:click="loadRecipe()">Load</button>
+        <button id="saveFile" event:click="saveRecipe()">Save</button>
+        <table class="ui celled table" id="recipe">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Temp</th>
+                <th>Duration</th>
+            </tr>
+            </thead>
+            <tbody>
+            <std:if condition="machine.recipe != null">
+                <std:foreach index="index" var="stage" in="machine.recipe.stages">
+                    <tr>
+                        <td>
+                            <html:text value="index"/>
+                        </td>
+                        <td>
+                            <html:text value="stage.name"/>
+                        </td>
+                        <td>
+                            <html:text value="stage.temp"/>
+                        </td>
+                        <td>
+                            <html:text value="stage.duration"/>
+                        </td>
+                    </tr>
+                </std:foreach>
+            </std:if>
+            </tbody>
+        </table>
+    </div>
+
+</div>

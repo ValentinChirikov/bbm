@@ -1,0 +1,57 @@
+<!--
+  This is the wrapper HTML page for the application.
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Beer brew machine !</title>
+    <script type="text/javascript" src="js/teavm/classes.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="/webjars/momentjs/2.24.0/min/moment.min.js"></script>
+    <script src="/webjars/chartjs/2.6.0/dist/Chart.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="flavour/widgets.css">
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <audio id="audioBell" src="/audio/bell.mp3" preload="auto"></audio>
+    <style type="text/css">
+        /* Chart.js */
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+</head>
+<body onload="main()">
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript!
+    WebSocket relies on Javascript being enabled.
+    Please enable Javascript and reload this page!</h2>
+</noscript>
+<div id="application-content"></div>
+</body>
+</html>

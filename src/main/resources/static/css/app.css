@@ -1,0 +1,144 @@
+body {
+    background-color: #f5f5f5;
+}
+
+#stageProgress {
+    width: 100%;
+    background-color: grey;
+}
+
+#stageProgressBar {
+    width: 0%;
+    background-color: green;
+    text-align: center; /* To center it horizontally (if you want) */
+    color: white;
+}
+
+/* Desktop */
+@media screen and (max-width: 1920px) {
+    #canvas {
+        /*width: 1410px;*/
+        width: 100%;
+        height:250px;
+    }
+
+    body{
+        font-size: 20px;
+    }
+
+    button {
+        height: 50px;
+        width: 100px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid black;
+    }
+
+    th, td {
+        padding: 8px;
+        border: 1px solid black;
+    }
+
+}
+
+/* For Tablets */
+@media screen and (max-width: 1000px) {
+    #canvas {
+        width: 600px;
+    }
+    body{
+        font-size: 18px;
+    }
+
+    #brewMachine {
+        font-size: 32px;
+    }
+    button {
+        height: 100px;
+        width: 250px;
+        font-size: 32px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 5px solid black;
+    }
+
+    th, td {
+        padding: 8px;
+        border: 5px solid black;
+    }
+
+    #brewMachine {
+        border: 0 ;
+    }
+
+    #brewMachine th {
+        border: 0 ;
+    }
+
+
+    #brewMachine td {
+        border: 5px solid black;
+    }
+
+    #brewMachine tr:first-child td {
+        border-top: 0;
+    }
+
+    #brewMachine tr td:first-child {
+        border-left: 0;
+    }
+
+    #brewMachine tr:last-child td {
+        border-bottom: 0;
+    }
+    #brewMachine tr td:last-child {
+        border-right: 0;
+    }
+}
+
+/* For mobile */
+@media screen and (max-width: 600px) {
+    #canvas {
+        width: 400px;
+    }
+    body{
+        font-size: 16px;
+    }
+
+    button {
+        height: 100px;
+        width: 250px;
+        font-size: 32px;
+    }
+}
+
+/* Chart.js */
+@-webkit-keyframes chartjs-render-animation {
+    from {
+        opacity: 0.99
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes chartjs-render-animation {
+    from {
+        opacity: 0.99
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.chartjs-render-monitor {
+    -webkit-animation: chartjs-render-animation 0.001s;
+    animation: chartjs-render-animation 0.001s;
+}
+
